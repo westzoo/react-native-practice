@@ -28,7 +28,7 @@ import {
 import {useEffect} from 'react/cjs/react.production.min';
 import StyledButton from '../components/Button';
 
-const MainView = () => {
+const MainView = ({navigation}) => {
   return (
     <View
       style={[
@@ -58,7 +58,11 @@ const MainView = () => {
           alignItems: 'center',
           padding: 30,
         }}>
-        <StyledButton color={'orange'} title={'시작하기'} />
+        <StyledButton
+          color={'orange'}
+          title={'시작하기'}
+          onPress={() => navigation.navigate('MainPage')}
+        />
       </View>
     </View>
   );

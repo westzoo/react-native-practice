@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {TouchableOpacity, Text, StyleSheet, Alert} from 'react-native';
 import Pressable from 'react-native/Libraries/Components/Pressable/Pressable';
-const StyledButton = ({title, color}) => {
+const StyledButton = ({title, color, onPress}) => {
   const handlePressButton = () => {
     Alert.alert('버튼을 누릅니다');
   };
@@ -10,7 +10,7 @@ const StyledButton = ({title, color}) => {
     <TouchableOpacity
       color={color}
       style={styles.styleButton}
-      onPress={() => handlePressButton()}>
+      onPress={onPress}>
       <Text style={styles.title}>{title}</Text>
     </TouchableOpacity>
   );
