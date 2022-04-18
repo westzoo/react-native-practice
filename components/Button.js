@@ -1,16 +1,11 @@
-import React, {Component} from 'react';
+import React from 'react';
 import {TouchableOpacity, Text, StyleSheet, Alert} from 'react-native';
-import Pressable from 'react-native/Libraries/Components/Pressable/Pressable';
-const StyledButton = ({title, color, onPress}) => {
-  const handlePressButton = () => {
-    Alert.alert('버튼을 누릅니다');
-  };
-
+const StyledButton = ({title, color, onPressIn}) => {
   return (
     <TouchableOpacity
       color={color}
       style={styles.styleButton}
-      onPress={onPress}>
+      onPress={onPressIn}>
       <Text style={styles.title}>{title}</Text>
     </TouchableOpacity>
   );
@@ -26,6 +21,7 @@ const styles = StyleSheet.create({
     elevation: 3,
     padding: 10,
     marginBottom: 15,
+    zIndex: 1,
   },
   title: {
     fontSize: 15,
@@ -33,4 +29,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default StyledButton;
+export default React.memo(StyledButton);

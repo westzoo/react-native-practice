@@ -8,7 +8,7 @@ import StyledButton from '../components/Button';
 import {Card} from 'react-native-paper';
 import {useDispatch} from 'react-redux';
 import {gameAction} from '../module/gameSlice';
-const StartPage = () => {
+const StartPage = ({navigation}) => {
   const [firstPlayer, setFirstPlayer] = useState('player1');
   const dispatch = useDispatch();
 
@@ -31,6 +31,8 @@ const StartPage = () => {
           backgroundColor: 'gray',
           alignItems: 'center',
           justifyContent: 'flex-start',
+          flexDirection: 'row',
+          width: '100%',
         }}>
         <Card
           style={[
@@ -40,7 +42,7 @@ const StartPage = () => {
             },
           ]}
           onPress={e => handleSelectPlayer('player1')}>
-          <Card.Title title="사용자1" />
+          <Card.Title title="그림1" />
           <Card.Content>
             <Card.Cover source={require('../img/emojimix.png')} />
           </Card.Content>
@@ -53,7 +55,7 @@ const StartPage = () => {
             },
           ]}
           onPress={e => handleSelectPlayer('player2')}>
-          <Card.Title title="사용자2" />
+          <Card.Title title="그림2" />
           <Card.Content>
             <Card.Cover source={require('../img/birthday.png')} />
           </Card.Content>
@@ -64,7 +66,11 @@ const StartPage = () => {
           alignItems: 'center',
           padding: 10,
         }}>
-        <StyledButton color={'orange'} title={'시작하기'} />
+        <StyledButton
+          color={'orange'}
+          title={'시작하기'}
+          onPress={() => navigation.navigate('GamePage')}
+        />
       </View>
     </View>
   );
@@ -80,7 +86,8 @@ const styles = StyleSheet.create({
     fontSize: 20,
   },
   styleCard: {
-    width: '80%',
+    width: '50%',
+    height: '100%',
   },
 });
 

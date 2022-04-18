@@ -6,7 +6,12 @@ import {useEffect} from 'react/cjs/react.production.min';
 import StyledButton from '../components/Button';
 
 import {Card} from 'react-native-paper';
+import {useSelector} from 'react-redux';
+import {gameAction, scheduleSelector} from '../module/gameSlice';
+
 const GamePage = () => {
+  const player = useSelector(scheduleSelector.scheduleInfo);
+
   return (
     <View
       style={[
@@ -21,7 +26,9 @@ const GamePage = () => {
           backgroundColor: 'gray',
           alignItems: 'center',
           justifyContent: 'flex-start',
-        }}></View>
+        }}>
+        <Text>{player.startPlayer}</Text>
+      </View>
       <View
         style={{
           alignItems: 'center',

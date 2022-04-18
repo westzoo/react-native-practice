@@ -29,6 +29,8 @@ import {useEffect} from 'react/cjs/react.production.min';
 import StyledButton from '../components/Button';
 
 const MainView = ({navigation}) => {
+  const days = ['일', '월', '화', '수', '목', '금', '토'];
+
   return (
     <View
       style={[
@@ -44,7 +46,7 @@ const MainView = ({navigation}) => {
           alignItems: 'center',
           justifyContent: 'flex-start',
         }}>
-        <Text style={styles.title}>오늘은 금요일</Text>
+        <Text style={styles.title}>오늘은 {days[new Date().getDay()]}요일</Text>
 
         <Image
           source={require('../img/emojimix.png')}

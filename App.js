@@ -6,6 +6,7 @@ import StartPage from './pages/StartPage';
 import GamePage from './pages/GamePage';
 import {Provider} from 'react-redux';
 import createStore from './module/store';
+import KakaoLayout from './pages/kakaoLayout';
 const Stack = createStackNavigator();
 const store = createStore();
 
@@ -14,7 +15,11 @@ const App = () => {
     <Provider store={store}>
       <NavigationContainer>
         <Stack.Navigator>
-          <Stack.Screen name="Home" component={MainView} />
+          <Stack.Screen
+            name="Home"
+            component={KakaoLayout}
+            options={{headerShown: false}}
+          />
           <Stack.Screen name="MainPage" component={StartPage} />
           <Stack.Screen name="GamePage" component={GamePage} />
         </Stack.Navigator>
