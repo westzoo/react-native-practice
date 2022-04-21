@@ -1,8 +1,17 @@
-import React from 'react';
+import {login} from '@react-native-seoul/kakao-login';
+import React, {useState} from 'react';
 import {StyleSheet, Text, View, Button, Image} from 'react-native';
 import StyledButton from '../components/Button';
 
-const KakaoLayout = () => {
+const KakaoLayout = ({navigation}) => {
+  const [result, setResult] = useState();
+
+  const signInWithKakao = async () => {
+    const token = await login();
+    setResult(JSON.stringify(token));
+    console.log(token);
+  };
+
   return (
     <View style={styles.container}>
       <View style={styles.header}></View>
@@ -18,9 +27,10 @@ const KakaoLayout = () => {
       </View>
       <View style={styles.footer}>
         <StyledButton
-          title={'로그인'}
+          title={'로그인하기'}
           onPressIn={() => {
-            console.log('press');
+            signInWithKakao();
+            // navigation.navigate('LoginPage');
           }}
         />
       </View>

@@ -20,7 +20,11 @@ const App = () => {
             component={KakaoLayout}
             options={{headerShown: false}}
           />
-          <Stack.Screen name="MainPage" component={StartPage} />
+          <Stack.Screen
+            name="LoginPage"
+            component={StartPage}
+            options={{headerShown: false}}
+          />
           <Stack.Screen name="GamePage" component={GamePage} />
         </Stack.Navigator>
       </NavigationContainer>

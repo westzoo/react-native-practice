@@ -18,77 +18,68 @@ const StartPage = ({navigation}) => {
   };
 
   return (
-    <View
-      style={[
-        styles.container,
-        {
-          flexDirection: 'column',
-        },
-      ]}>
-      <View
-        style={{
-          flex: 5,
-          backgroundColor: 'gray',
-          alignItems: 'center',
-          justifyContent: 'flex-start',
-          flexDirection: 'row',
-          width: '100%',
-        }}>
-        <Card
-          style={[
-            styles.styleCard,
-            {
-              backgroundColor: firstPlayer === 'player1' ? 'skyblue' : 'white',
-            },
-          ]}
-          onPress={e => handleSelectPlayer('player1')}>
-          <Card.Title title="그림1" />
-          <Card.Content>
-            <Card.Cover source={require('../img/emojimix.png')} />
-          </Card.Content>
-        </Card>
-        <Card
-          style={[
-            styles.styleCard,
-            {
-              backgroundColor: firstPlayer === 'player2' ? 'skyblue' : 'white',
-            },
-          ]}
-          onPress={e => handleSelectPlayer('player2')}>
-          <Card.Title title="그림2" />
-          <Card.Content>
-            <Card.Cover source={require('../img/birthday.png')} />
-          </Card.Content>
-        </Card>
+    <View style={styles.container}>
+      <View style={styles.header}></View>
+      <View style={styles.title}>
+        <View style={styles.titleBox}>
+          <Text style={styles.titleTxt}>
+            손끝에서 펼쳐지는{'\n'}새로운 세상 {'\n'}엘리가
+          </Text>
+        </View>
       </View>
-      <View
-        style={{
-          alignItems: 'center',
-          padding: 10,
-        }}>
+      <View style={styles.content}></View>
+      <View style={styles.footer}>
         <StyledButton
-          color={'orange'}
-          title={'시작하기'}
-          onPress={() => navigation.navigate('GamePage')}
+          title={'로그인하기'}
+          onPressIn={() => {
+            navigation.navigate('LoginPage');
+          }}
         />
       </View>
     </View>
   );
 };
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'space-between',
-    backgroundColor: 'gray',
+    justifyContent: 'center',
+    backgroundColor: 'rgb(53,54,70)',
+  },
+  header: {
+    width: '100%',
+    height: '9%',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   title: {
-    color: 'white',
-    fontSize: 20,
+    width: '100%',
+    height: '18%',
+    justifyContent: 'center',
+    alignItems: 'flex-start',
   },
-  styleCard: {
+  titleBox: {
     width: '50%',
+    paddingLeft: 20,
+  },
+  titleTxt: {
+    fontWeight: '800',
+    fontSize: 22,
+    color: 'white',
+    letterSpacing: 1,
+    lineHeight: 28,
+  },
+  content: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
     height: '100%',
   },
+  footer: {
+    width: '100%',
+    height: '20%',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
 });
-
 export default StartPage;

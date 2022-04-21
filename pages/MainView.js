@@ -28,7 +28,7 @@ import {
 import {useEffect} from 'react/cjs/react.production.min';
 import StyledButton from '../components/Button';
 
-const MainView = ({navigation}) => {
+const LoginPage = ({navigation}) => {
   const days = ['일', '월', '화', '수', '목', '금', '토'];
 
   return (
@@ -82,4 +82,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default MainView;
+export default LoginPage;
